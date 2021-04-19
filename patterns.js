@@ -1,5 +1,5 @@
-// Tissues: sketch 1/4
 
+// Tissue Patterns: 1/5
 var pattern1 = new p5((s) => {
     let cols = 25;
     let rows = 9;
@@ -54,8 +54,7 @@ var pattern1 = new p5((s) => {
 
 }, 'p1');
 
-// Tissues: sketch 2/4
-
+// Tissue Patterns: 2/5
 let pattern2 = new p5((s) => {
     let cols = 5;
     let rows = 25;
@@ -101,8 +100,7 @@ let pattern2 = new p5((s) => {
     }
 }, 'p2');
 
-// Tissues: sketch 3/4
-
+// Tissue Patterns: 3/5
 let pattern3 = new p5((s) =>{
     let size = 35;
     let strokeProb = 0.02;
@@ -143,10 +141,33 @@ let pattern3 = new p5((s) =>{
    
 }, 'p3');
 
-function refreshPatterns() {
-    pattern1.generate()
-    pattern2.generate()
-    pattern3.generate()
-}
+// Tissue Patterns: 4/5
+let pattern4 = new p5((s) => {
 
-window.setInterval(refreshPatterns, 1500);
+    s.setup = function() {
+
+    }
+
+    s.generate = function() {
+
+    }
+}, 'p4');
+
+// Tissue Patterns: 5/5
+let pattern5 = new p5((s) => {
+
+    s.setup = function() {
+
+    }
+    
+    s.generate = function() {
+
+    }
+}, 'p4');
+
+// window.setInterval((refresh) => {
+//     pattern1.generate()
+//     pattern2.generate()
+//     pattern3.generate()
+//     pattern4.generate()
+// }, 1500);

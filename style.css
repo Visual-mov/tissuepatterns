@@ -1,9 +1,41 @@
+h1, p {
+    font-family: LouisGeorgeCafe;
+}
+
+.title {
+    text-align: center;
+    font-size: 115%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
 .grid {
     display: grid;
     grid-template-columns: auto auto auto;
-    padding: 20px;
 }
 
 .item {
-    
+    text-align: center;
+    margin: 5%;
+    background-color:rgb(240, 240, 240);
+    border-radius: 20px;
+}
+
+.item:hover {
+    background-color: rgb(200, 200, 200);
+    animation: sketch_fade 0.5s;
+}
+
+.item > div {
+    padding: 20px;
+    padding-bottom: 0%;
+}
+
+@font-face {
+    font-family: LouisGeorgeCafe;
+    src: url(static/Louis\ George\ Cafe\ Bold.ttf)
+}
+@keyframes sketch_fade {
+    from {background-color: rgb(240, 240, 240);}
+    to   {background-color: rgb(200, 200, 200);}
 }
