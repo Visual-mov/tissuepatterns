@@ -60,8 +60,8 @@ let pattern2 = new p5((s) => {
     let rows = 25;
     let maxOff = 3;
     let addProb = 0.2;
-    let fromColor = "#334255";
-    let toColor = "#aba8a1";
+    let fromColor = "#335455";
+    let toColor = "#bce1e3";
     
     s.setup = function() {
         s.createCanvas(425, 500);
@@ -71,7 +71,7 @@ let pattern2 = new p5((s) => {
     }
     
     s.generate = function() {
-        s.background(s.color("#e2cba1"));
+        s.background(s.color("#f7f4da"));
         let xSize = s.width/cols;
         let ySize = s.height/rows;
         let li = 1/rows;
@@ -163,7 +163,7 @@ let pattern5 = new p5((s) => {
     s.generate = function() {
 
     }
-}, 'p4');
+}, 'p5');
 
 // window.setInterval((refresh) => {
 //     pattern1.generate()
