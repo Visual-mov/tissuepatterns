@@ -143,13 +143,83 @@ let pattern3 = new p5((s) =>{
 
 // Tissue Patterns: 4/5
 let pattern4 = new p5((s) => {
+    
+    let noiseOff = 100;
+    let ringRad = 10;
 
     s.setup = function() {
-
+        s.createCanvas(425, 500);
+        s.generate();
+        s.ringRad = 1;
     }
-
+    
     s.generate = function() {
-
+        s.background(s.color("#483c91"));
+        s.noStroke();
+        s.fill('rgba(136, 0, 186, 0.2)');
+        s.drawCloud(s.random(s.width), s.random(s.height), s.gRand(15, 225), 2, s.random(0.5, 0.7));
+        for(let i = 0; i < 8; i++) {
+            s.fill(255, i*20);
+            s.drawCloud(s.random(s.width), s.random(s.height), s.gRand(25, 125), 2, s.random(0.5, 0.7));
+        }
+        s.fill(255, 75);
+        s.circleLayer(2);
+        s.fill(255);
+        s.circleLayer(4);
+    }
+    
+    s.circleLayer = function(count) {
+        let c, list = [];
+        for(let i = 0; i < count; i++) {
+            do {
+                c = [s.createVector(s.random(s.width), s.random(s.height)), s.round(s.gRand(2, 10))];
+            } while(s.overlapping(c[0], c[1], list))
+            list.push(c);
+            s.drawCircle(c[0].x, c[0].y, c[1]);
+        }
+    }
+    
+    s.drawCircle = function(x, y, rings) {
+        s.ellipse(x,y, 6, 6);
+        s.print(s.ringRad)
+        for(let r = ringRad; r < rings*ringRad; r+=ringRad) {
+            let offset = s.random(s.PI*2);
+            for(let a = 0; a < 2*s.PI; a+=s.PI/(r/2)) {
+                let apos = s.createVector(x+s.cos(a+offset)*r, y+s.sin(a+offset)*r);
+                let dir = p5.Vector.sub(s.createVector(x,y), apos)
+                s.push();
+                s.translate(apos.x, apos.y)
+                s.rotate(dir.heading());
+                s.ellipse(0, 0, 6, 3);
+                s.pop();
+            }
+        }
+    }
+    
+    s.drawCloud = function(x, y, r, w, h)  {
+        s.beginShape();
+        for (i = 0; i < 100; i++) {
+            let off = noiseOff
+            let vx, vy;
+            let a = i*(s.PI*2/100);
+            let rad = s.map(s.noise(s.cos(a)+off, s.sin(a)+off), 0, 1, r-r/1.5, r+r/1.5);
+            vx = s.cos(a)*rad*w;
+            vy = s.sin(a)*rad*h;
+            s.vertex(s.round(vx)+x, s.round(vy)+y);
+        }
+        noiseOff += 100;
+        s.endShape(s.CLOSE);
+    }
+    
+    s.overlapping = function(p, rings, list) {
+        for(let i = 0; i < list.length; i++)
+            if(s.dist(p.x, p.y, list[i][0].x, list[i][0].y) <= ringRad*rings + ringRad*list[i][1])
+                return true;
+        return false;
+    }
+    
+    s.gRand = function(sd, m) {
+      return (s.randomGaussian() * sd) + m;
     }
 }, 'p4');
 

@@ -3,10 +3,8 @@ h1, p {
 }
 
 .title {
-    text-align: center;
     font-size: 115%;
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-right: 50%;
 }
 
 .grid {
@@ -28,7 +26,6 @@ h1, p {
 
 .item > div {
     padding: 20px;
-    padding-bottom: 0%;
 }
 
 @font-face {
