@@ -1,10 +1,29 @@
-h1, p {
+body {
+    background-color: #383838;
+    color: white;
+    margin: 2%;
+}
+
+h1, p, button {
     font-family: LouisGeorgeCafe;
+}
+
+button {
+    background-color:#5e5e5e;
+    border: none;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    transition-duration: 0.2s;
+}
+button:hover {
+    background-color: #6e6e6e;
 }
 
 .title {
     font-size: 115%;
-    margin-right: 50%;
+    margin-right: 40%;
+    margin-bottom: 20px;
 }
 
 .grid {
@@ -14,25 +33,18 @@ h1, p {
 
 .item {
     text-align: center;
-    margin: 5%;
-    background-color:rgb(240, 240, 240);
-    border-radius: 20px;
+    background-color:#5e5e5e;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+    transition-duration: 0.2s;
 }
 
 .item:hover {
-    background-color: rgb(200, 200, 200);
-    animation: sketch_fade 0.5s;
-}
-
-.item > div {
-    padding: 20px;
+    background-color: #6e6e6e;
 }
 
 @font-face {
     font-family: LouisGeorgeCafe;
     src: url(static/Louis\ George\ Cafe\ Bold.ttf)
-}
-@keyframes sketch_fade {
-    from {background-color: rgb(240, 240, 240);}
-    to   {background-color: rgb(200, 200, 200);}
 }
